@@ -32,4 +32,4 @@ class MetasploitModule < Msf::Auxiliary
     def cmd_aux_extra_command(*args)
       print_status("Running inside aux_extra_command(#{args.join(' ')})")
     end
-  end
+end

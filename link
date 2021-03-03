@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SELF_DIR = $(cd -P $(dirname $0) && pwd)
+
+ln -s "$SELF_DIR/modules/auxiliary/exert" "~/.msf4/modules/auxiliary/exert"
+ln -s "$SELF_DIR/modules/exploits/exert" "~/.msf4/modules/exploits/exert"
+ln -s "$SELF_DIR/modules/payloads/exert" "~/.msf4/modules/payloads/exert"
+

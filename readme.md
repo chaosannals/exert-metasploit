@@ -1,50 +1,5 @@
 # exert-metasploit
 
-```bash
-# 进入命令行
-msfconsole
-```
-
-## msfconsole 终端
-
-```bash
-# 帮助
-help
-
-# 重载，自定义模块等添加或修改代码后要重载。
-reload_all
-
-# 查看MSF有没有连接上后台数据库。
-db_status
-
-# 
-```
-
-## msfdb 数据库
-
-```bash
-# 初始化数据库
-msfdb init
-
-# 重新初始化
-msfdb reinit
-
-# 删除数据库
-msfdb delete
-
-# 重启
-msfdb start
-
-# 停止
-msfdb stop
-
-# 查看状态
-msfdb status
-
-# 启动数据库并进入终端
-msfdb run
-```
-
 ## 模块 modules 目录
 
 ### auxiliary

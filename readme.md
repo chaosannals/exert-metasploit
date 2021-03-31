@@ -1,5 +1,41 @@
 # exert-metasploit
 
+## 连接 PostgreSQL 数据库
+
+```bash
+# 启动 PostgreSQL
+service postgresql start
+
+# 使用 postgres 用户启用 psql 终端
+sudo -u postgres psql
+```
+
+```sql
+/* 创建一个用户 */
+CREATE USER admin WITH PASSWORD '123456';
+
+/* 给该用户创建一个数据库 */
+CREATE DATABASE msf OWNER admin;
+
+/* 查看数据库列表 */
+
+\l
+
+/* 退出 psql 终端 */
+quit
+```
+
+```bash
+# 进入 msf 终端
+msfconsole
+
+# 连接数据库
+db_connect admin:123456@127.0.0.1/msf
+
+# 查看数据库连接状态
+db_status
+```
+
 ## 模块 modules 目录
 
 ### auxiliary

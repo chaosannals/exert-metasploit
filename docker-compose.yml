@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+    # Metasploit Framework
+    framework:
+        image: metasploitframework/metasploit-framework
+        container_name: exert-metasploit-framework
+        volumes:
+            - ./:/exert
+            - ./modules/auxiliary/exert:/root/.msf4/modules/auxiliary/exert
+            - ./modules/exploits/exert:/root/.msf4/modules/exploits/exert
+            - ./modules/payloads/exert:/root/.msf4/modules/payloads/exert
+        working_dir: /exert
+        entrypoint:
+            - /bin/bash
+            - /exert/entry
+        networks:
+            - exert-metasploit-net
+
+    # 靶机 CentOS 6
+    centos6:
+        image: centos:6
+        container_name: exert-metasploit-centos6
+        volumes:
+            - ./targets/centos6:/app
+        working_dir: /app
+        entrypoint:
+            - /bin/bash
+            - /app/entry
+        networks:
+            - exert-metasploit-net
+
+    # 靶机 CentOS 7
+    centos7:
+        image: centos:7
+        container_name: exert-metasploit-centos7
+        volumes:
+            - ./targets/centos7:/app
+        working_dir: /app
+        entrypoint:
+            - /bin/bash
+            - /app/entry
+        networks:
+            - exert-metasploit-net
+
+    # 靶机 CentOS 8
+    centos8:
+        image: centos:8
+        container_name: exert-metasploit-centos8
+        volumes:
+            - ./targets/centos8:/app
+        working_dir: /app
+        entrypoint:
+            - /bin/bash
+            - /app/entry
+        networks:
+            - exert-metasploit-net
+
+
+networks:
+    exert-metasploit-net:
+        name: exert-metasploit-net
+        driver: bridge

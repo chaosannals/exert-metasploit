@@ -11,6 +11,10 @@ services:
             - ./modules/exploits/exert:/root/.msf4/modules/exploits/exert
             - ./modules/payloads/exert:/root/.msf4/modules/payloads/exert
         working_dir: /exert
+        depends_on: 
+            - centos6
+            - centos7
+            - centos8
         entrypoint:
             - /bin/bash
             - /exert/entry
